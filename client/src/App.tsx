@@ -1,4 +1,8 @@
 import React from 'react';
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import MainPage from "./views/MainPage"
+import List from "./views/ListPage"
+import Webpage from "./views/Webpage"
 
 function App() {
 
@@ -8,7 +12,13 @@ function App() {
 
   return (
     <div>
-      app
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<List />} />
+          <Route path="/search" element={<MainPage />} />
+          <Route path="/:webpage" element={<Webpage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
