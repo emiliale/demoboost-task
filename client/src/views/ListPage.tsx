@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom'
 
 const ListPage: React.FC = () => {
-    
-    const webpages: string[] = ['https://google.com', 'https://facebook.com']
+
+    const webpages: string[] = ['https://elegantthemes.com/', 'https://example.com']
     const splitedWebpages: string[] = webpages.map((webpage => webpage.split('/')[2]))
     const listItems: JSX.Element[] =
         splitedWebpages.map((webpage) =>

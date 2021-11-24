@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { TextField } from "./components/TextField"
 import { useNavigate } from 'react-router-dom'
-interface MainPage {
-    webpage: string;
-}
 
-const MainPage: React.FC = () => {
+
+const SearchPage: React.FC = () => {
     const navigate = useNavigate()
     return (
         <div>
@@ -21,4 +19,4 @@ const MainPage: React.FC = () => {
     )
 }
 
-export default MainPage;
+export default SearchPage;
