@@ -1,5 +1,9 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
+import withAppBar from "./utils/withAppBar";
+import { Fab, ListItem, List, ListItemButton, ListItemText, Typography, Paper } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+
 
 const ListPage: React.FC = () => {
 
@@ -7,17 +11,30 @@ const ListPage: React.FC = () => {
     const splitedWebpages: string[] = webpages.map((webpage => webpage.split('/')[2]))
     const listItems: JSX.Element[] =
         splitedWebpages.map((webpage) =>
-            <li onClick={() => navigate(`/${webpage}`)} key={webpage}><button>{webpage}</button></li>
+            <ListItem disablePadding>
+                <ListItemButton onClick={() => navigate(`/${webpage}`)}>
+                    <ListItemText primary={webpage} />
+                </ListItemButton>
+            </ListItem>
         );
+
     const navigate = useNavigate()
 
     return (
-        <div>
-            <button onClick={() => navigate("/search")}>Capture a new webpage</button>
-            <br /><br />
-            {listItems}
-        </div>
+        <Paper style={{ padding: "30px", marginTop: "5px" }}>
+            <Fab
+                color="primary"
+                style={{ right: 20, position: 'fixed', background: "#5a51ff" }}
+                onClick={() => navigate("/search")}
+            >
+                <AddIcon />
+            </Fab>
+            <Typography style={{ fontWeight: "bold" }}>Captured webpages:</Typography>
+            <List>
+                {listItems}
+            </List>
+        </Paper>
     )
 }
 
-export default ListPage;
+export default withAppBar(ListPage);
