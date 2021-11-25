@@ -11,7 +11,7 @@ const ListPage: React.FC = () => {
     const splitedWebpages: string[] = webpages.map((webpage => webpage.split('/')[2]))
     const listItems: JSX.Element[] =
         splitedWebpages.map((webpage) =>
-            <ListItem disablePadding>
+            <ListItem key={webpage} disablePadding>
                 <ListItemButton onClick={() => navigate(`/${webpage}`)}>
                     <ListItemText primary={webpage} />
                 </ListItemButton>

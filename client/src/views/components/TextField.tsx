@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React from "react";
+import { TextField, Button } from "@mui/material";
 
 interface Props {
   placeholder: string;
@@ -6,15 +7,25 @@ interface Props {
   handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const TextField: React.FC<Props> = ({ placeholder, handleChange, handleClick }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const divRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
+export const CustomTextField: React.FC<Props> = ({ placeholder, handleChange, handleClick }) => {
   return (
-    <div ref={divRef}>
-      <input ref={inputRef} onChange={handleChange} placeholder={placeholder}/>
-      <button ref={buttonRef} onClick={handleClick}>OK</button>
-    </div>
+    <TextField
+      color="primary"
+      label="Webpage address"
+      placeholder={placeholder}
+      variant="outlined"
+      focused
+      onChange={handleChange}
+      InputProps={{
+        endAdornment:
+          <Button
+            variant="contained"
+            style={{ background: "#5a51ff" }}
+            onClick={handleClick}
+          >
+            OK
+          </Button>
+      }}
+    />
   );
 };

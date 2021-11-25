@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import withAppBar from "./utils/withAppBar";
-import { Fab, TextField, Button, Paper } from "@mui/material";
-
+import { Fab, Paper } from "@mui/material";
+import { CustomTextField } from "./components/TextField";
 
 const SearchPage: React.FC = () => {
     const navigate = useNavigate()
+    const [webpage, setWebpage] = useState<string>()
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+        setWebpage(event.target.value);
+
+    const handleClick = () => console.log(webpage)
+
     return (
         <Paper style={{ padding: "30px", marginTop: "5px" }}>
             <Fab
@@ -16,20 +23,11 @@ const SearchPage: React.FC = () => {
             >
                 Captured webpages
             </Fab>
-            <TextField 
-            color="primary"
-            label="Webpage address" 
-            placeholder="https://example.com" 
-            variant="outlined" 
-            focused 
-            InputProps={{endAdornment: <Button variant="contained" style={{background: "#5a51ff"}}>OK</Button>}}
-            />
-{/* 
-            <TextField
+            <CustomTextField
                 placeholder='https://example.com'
-                handleChange={e => { console.log(e) }}
-                handleClick={e => { console.log("Klikniete kurba") }}
-            /> */}
+                handleChange={handleChange}
+                handleClick={handleClick}
+            />
         </Paper>
     )
 }
