@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import withAppBar from "./utils/withAppBar";
 import { Fab, Paper } from "@mui/material";
 import { CustomTextField } from "./components/TextField";
 import webpageAPI from "../api/WebpageAPI";
+import withAppBar from "./utils/withAppBar";
 
 const SearchPage: React.FC = () => {
     const navigate = useNavigate()

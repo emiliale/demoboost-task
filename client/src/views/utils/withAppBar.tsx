@@ -1,5 +1,5 @@
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import React, { ComponentClass, FunctionComponent } from "react";
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 
 const withAppBar = (WrappedComponent: ComponentClass | FunctionComponent) => {
     return () => {

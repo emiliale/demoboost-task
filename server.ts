@@ -1,13 +1,13 @@
 import express from 'express'
 import cors from 'cors'
-import database from "./database"
 import bodyParser from 'body-parser'
+import database from "./database"
 
+const port = 5000
 const app = express()
 
 app.use(cors());
 app.use(bodyParser.json());
-
 
 app.get('/webpages', async (req, res) => {
     try{
@@ -31,5 +31,4 @@ app.post('/webpages', (req, res) => {
     }
 })
 
-
-app.listen(5000, () => console.log('server started'))
+app.listen(process.env.PORT || port, () => console.log('server started'))
