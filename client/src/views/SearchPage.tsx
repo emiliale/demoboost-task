@@ -3,15 +3,19 @@ import { useNavigate } from 'react-router-dom'
 import withAppBar from "./utils/withAppBar";
 import { Fab, Paper } from "@mui/material";
 import { CustomTextField } from "./components/TextField";
+import webpageAPI from "../api/WebpageAPI";
 
 const SearchPage: React.FC = () => {
     const navigate = useNavigate()
-    const [webpage, setWebpage] = useState<string>()
+    const [webpage, setWebpage] = useState<string>("")
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
         setWebpage(event.target.value);
 
-    const handleClick = () => console.log(webpage)
+    const handleClick = async () => {       
+        const response = await webpageAPI.addWebpage(webpage);
+        console.log(response)
+    }
 
     return (
         <Paper style={{ padding: "30px", marginTop: "5px" }}>

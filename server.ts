@@ -9,4 +9,8 @@ app.get('/greeting', (req, res) => {
     res.json({ greeting: 'Hello' })
 })
 
+app.post('/webpage', (req, res) => {
+    res.json({ greeting: 'Hello' })
+})
+
 app.listen(5000, () => console.log('server started'))
