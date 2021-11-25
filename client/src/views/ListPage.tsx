@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import withAppBar from "./utils/withAppBar";
 import { Fab, ListItem, List, ListItemButton, ListItemText, Typography, Paper } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
+import webpageAPI from "../api/WebpageAPI";
 
 
 const ListPage: React.FC = () => {
 
-    const webpages: string[] = ['https://elegantthemes.com/', 'https://example.com']
-    const splitedWebpages: string[] = webpages.map((webpage => webpage.split('/')[2]))
+    const [webpages, setWebpages] = useState<string[]>([])
+
     const listItems: JSX.Element[] =
-        splitedWebpages.map((webpage) =>
+        webpages.map((webpage) =>
             <ListItem key={webpage} disablePadding>
                 <ListItemButton onClick={() => navigate(`/${webpage}`)}>
                     <ListItemText primary={webpage} />
@@ -19,6 +20,16 @@ const ListPage: React.FC = () => {
         );
 
     const navigate = useNavigate()
+
+    useEffect(() => {
+        (async () => {
+            const webpagesObjects = await webpageAPI.getWebpages();
+            const webpagesNames =
+                webpagesObjects.payload.map(
+                    (webpage: { name: string, address: string }) => webpage.name)
+            setWebpages(webpagesNames)
+        })();
+    }, []);
 
     return (
         <Paper style={{ padding: "30px", marginTop: "5px" }}>

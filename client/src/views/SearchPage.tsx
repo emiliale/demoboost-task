@@ -13,7 +13,9 @@ const SearchPage: React.FC = () => {
         setWebpage(event.target.value);
 
     const handleClick = async () => {       
-        const response = await webpageAPI.addWebpage(webpage);
+        const name: string = webpage.split('/')[2]
+        const response = await webpageAPI.addWebpage(name, webpage);
+        navigate(`/${name}`)
         console.log(response)
     }
 

@@ -7,10 +7,10 @@ const serverUrl =
         : "";
 
 const webpageAPI = {
-    async addWebpage(webpage: string) {
-        const response = await fetch(`${serverUrl}/webpage`, {
+    async addWebpage(name: string, address: string) {
+        const response = await fetch(`${serverUrl}/webpages`, {
             method: "POST",
-            body: JSON.stringify({ webpage }),
+            body: JSON.stringify({ name, address }),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -20,8 +20,16 @@ const webpageAPI = {
 
         return new ApiResponse(
             response.status,
-            `Successfuly added webpage ${webpage}`
+            `Successfuly added webpage ${name}`
         );
+    },
+
+    async getWebpages() {
+        const result = await fetch(`${serverUrl}/webpages`).then((res) => res.json());
+
+        if (!result) return new ApiResponse(400);
+
+        return new ApiResponse(200, result);
     },
 };
 
