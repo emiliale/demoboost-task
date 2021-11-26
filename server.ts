@@ -12,7 +12,7 @@ app.set("port", port);
 const db = process.env.DB_ENVIROMENT ? database.production : database.development 
 
 app.use(cors({
-    origin: '*'
+    origin: ['http://localhost:3000', 'https://demoboost-task-server.herokuapp.com']
 }));
 
 app.use(bodyParser.json());
