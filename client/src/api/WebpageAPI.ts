@@ -4,7 +4,7 @@ const env = process.env.NODE_ENV || "development";
 const serverUrl =
     env === "development"
         ? "http://localhost:5000"
-        : "";
+        : "https://demoboost-task-server.herokuapp.com";
 
 const webpageAPI = {
     async addWebpage(name: string, address: string) {
