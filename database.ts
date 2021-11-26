@@ -1,8 +1,8 @@
-import mysql from 'mysql2'
+// import mysql from 'mysql2'
  
-export = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "demoboosttask",
-})
+// export = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "root",
+//     database: "demoboosttask",
+// })
