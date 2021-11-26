@@ -3,7 +3,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 // import database from "./database"
 
-const port = 5000
+const port = 44260
 const app = express()
 
 app.use(cors());
