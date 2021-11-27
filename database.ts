@@ -12,6 +12,6 @@ if(!process.env.DB_ENVIROMENT){
         password: "root",
         database: "demoboosttask",
     })
-}   
+}
 
 export = database

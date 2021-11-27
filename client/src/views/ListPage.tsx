@@ -8,6 +8,7 @@ import webpageAPI from "../api/WebpageAPI";
 const ListPage: React.FC = () => {
 
     const [webpages, setWebpages] = useState<string[]>([])
+    const navigate = useNavigate()
 
     const listItems: JSX.Element[] =
         webpages.map((webpage) =>
@@ -17,8 +18,6 @@ const ListPage: React.FC = () => {
                 </ListItemButton>
             </ListItem>
         );
-
-    const navigate = useNavigate()
 
     useEffect(() => {
         (async () => {
