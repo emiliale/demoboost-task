@@ -4,7 +4,7 @@
 * [General info](#general-info)
 * [Deployment](#deployment)
 * [Setup](#setup)
-
+* [Notes](#notes)
 
 ## General info
 This project is a simple web app, which allows you to capture web pages and render them. The application was written using Typescript, with React and Express frameworks.
@@ -51,3 +51,6 @@ After configuring the database, start the application with the following command
 3. npm i
 4. cd ..
 5. npm run dev
+
+## Notes
+The app won't render web pages that set 'X-Frame-Options' to 'sameorigin'.
