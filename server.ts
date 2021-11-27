@@ -1,15 +1,15 @@
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import database from "./database"
-
+import { production } from './database'
+import { development } from './database'
 
 const app = express()
 
 const port = process.env.PORT || 5000;
 app.set("port", port);
 
-const db = process.env.DB_ENVIROMENT ? database.production : database.development 
+const db = process.env.DB_ENVIROMENT ? production : development 
 
 app.use(bodyParser.json());
 app.use(cors());
