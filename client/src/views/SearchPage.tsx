@@ -39,7 +39,7 @@ const SearchPage: React.FC = () => {
             <Fab
                 variant="extended"
                 color="primary"
-                style={{ right: 20, position: 'fixed', background: "#5a51ff" }}
+                style={{ right: 20, position: 'fixed', background: "#5951ff" }}
                 onClick={() => navigate("/")}
             >
                 Captured webpages

@@ -7,7 +7,7 @@ const withAppBar = (WrappedComponent: ComponentClass | FunctionComponent) => {
             <>
                 <AppBar
                     position="static"
-                    style={{backgroundColor:"#5a51ff", borderRadius:"5px"}}
+                    style={{backgroundColor:"#5951ff", borderRadius:"5px"}}
                 >
                     <Toolbar>
                         <Typography variant="h6" style={{fontFamily:"Verdana"}}>demoboost embedding</Typography>

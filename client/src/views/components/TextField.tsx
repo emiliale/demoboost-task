@@ -20,7 +20,7 @@ export const CustomTextField: React.FC<Props> = ({ placeholder, handleChange, ha
         endAdornment:
           <Button
             variant="contained"
-            style={{ background: "#5a51ff" }}
+            style={{ background: "#5951ff" }}
             onClick={handleClick}
           >
             OK
