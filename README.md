@@ -9,10 +9,6 @@
 ## General info
 This project is a simple web app, which allows you to capture web pages and render them. The application was written using Typescript, with React and Express frameworks.
 
-## Deployment
-* https://demoboost-task.herokuapp.com/ (client)
-* https://demoboost-task-server.herokuapp.com/ (server)
-
 ## Setup
 To start the application in the development environment, first configure the connection to the database.
 
